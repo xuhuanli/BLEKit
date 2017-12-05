@@ -26,9 +26,6 @@ import static com.inuker.bluetooth.library.Constants.STATUS_DISCONNECTED;
 public class MainActivity extends AppCompatActivity implements IMainView {
 
     private static final String TAG = "MainActivity";
-    private static final String serviceUUID =   "9EBCFF4E-A31D-4341-8EC8-C1DED5B12E50";
-    private static final String characterUUID = "00000000-0000-0000-0000-00000000FEE2";
-
     private IBluetooth mBluetooth;
     private boolean isOpen = false;
     private final BluetoothStateListener mBluetoothStateListener = new BluetoothStateListener() {
@@ -135,8 +132,6 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     }
 
     private void writeValue(byte[] value, BleWriteResponse response) {
-        byte[] bytes = ByteUtils.stringToBytes("F006010301000106");
-        UUID uuid = UUID.fromString(characterUUID);
         mConnectCmpl.writeData("08:7C:BE:96:27:3F", UUIDUtils.makeUUID(0xFEE0), UUIDUtils.makeUUID(0xFEE2), ByteUtils.stringToBytes("F006010301000106"),response);
     }
 
