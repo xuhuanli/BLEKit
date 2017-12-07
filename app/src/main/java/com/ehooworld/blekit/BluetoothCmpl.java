@@ -9,7 +9,6 @@ import com.inuker.bluetooth.library.search.response.SearchResponse;
 /**
  * Created by xuhuanli on 2017/12/4.
  */
-
 public class BluetoothCmpl implements IBluetooth {
     private BluetoothClient mClient = MyApp.getBluetoothClient();
 

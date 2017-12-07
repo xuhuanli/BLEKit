@@ -23,6 +23,9 @@ import java.util.UUID;
 import static com.inuker.bluetooth.library.Constants.STATUS_CONNECTED;
 import static com.inuker.bluetooth.library.Constants.STATUS_DISCONNECTED;
 
+/**
+ * The type Main activity.
+ */
 public class MainActivity extends AppCompatActivity implements IMainView {
 
     private static final String TAG = "MainActivity";
@@ -63,6 +66,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
     }
 
 
+    /**
+     * Detected bt.
+     *
+     * @param view the view
+     */
     public void detectedBT(View view) {
         if (mBluetooth.isOpenBT()) {
             Log.d(TAG, "蓝牙已打开");
@@ -74,6 +82,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         }
     }
 
+    /**
+     * Start search.
+     *
+     * @param view the view
+     */
     public void startSearch(View view) {
         if (!isOpen) {
             return;
@@ -106,6 +119,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         });
     }
 
+    /**
+     * Connect d.
+     *
+     * @param view the view
+     */
     public void connectD(View view){
 //        mConnectCmpl.registerConnectStatusListener("08:7C:BE:96:27:3F",mBleConnectStatusListener);
         mConnectCmpl.connectDevice("08:7C:BE:96:27:3F", new BleConnectResponse() {
@@ -120,6 +138,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
 
     }
 
+    /**
+     * Write data.
+     *
+     * @param view the view
+     */
     public void writeData(View view){
         writeValue(new byte[]{}, new BleWriteResponse() {
             @Override
@@ -135,6 +158,11 @@ public class MainActivity extends AppCompatActivity implements IMainView {
         mConnectCmpl.writeData("08:7C:BE:96:27:3F", UUIDUtils.makeUUID(0xFEE0), UUIDUtils.makeUUID(0xFEE2), ByteUtils.stringToBytes("F006010301000106"),response);
     }
 
+    /**
+     * Read data.
+     *
+     * @param view the view
+     */
     public void readData(View view){
 
     }
